@@ -13,13 +13,21 @@ var changeState = function (state) {
 			countdownNumber = countdownNumber - 1;
 			document.getElementById("countdown").innerHTML = countdownNumber;
 
-			if (countdownNumber == 5) {
+			if (countdownNumber > 4 && countdownNumber < 7) {
 				// be nervous
+				document.getElementById('nervous').className = 'nervous show';
+			} 
+
+			else {
+				document.getElementById('nervous').className = 'nervous';
 			}
 
-			if (countdownNumber == 3) {
+			if (countdownNumber > 1 && countdownNumber < 4) {
 				// can't wait
-			}
+				document.getElementById('cant-wait').className = 'cant-wait show';
+			} else {
+				document.getElementById('cant-wait').className = 'cant-wait';
+			};
 
 			if (countdownNumber <= 0) {
 				changeState(3);
@@ -32,7 +40,7 @@ var changeState = function (state) {
 			console.log('randomNumber', randomNumber);
 
 			//success
-			if (randomNumber > 2) {
+			if (randomNumber > 5) {
 				changeState(4);
 
 			} else {
